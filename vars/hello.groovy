@@ -1,4 +1,3 @@
-def call {}{
-  echo "Hello bhaiyo"
+def call() {
+    echo "Hello bhaiyo 👋"
 }
-  
