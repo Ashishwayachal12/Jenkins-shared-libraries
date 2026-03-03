@@ -17,7 +17,7 @@ pipeline {
 	        }
 			stage('Run Simple Java') {
             steps   {
-                  sh 'javac src/main/java/mavenPackage/Test.java'
+                  sh 'javac  --release 17 src/main/java/mavenPackage/Test.java'
                    sh 'java -cp src/main/java mavenPackage.Test'
                      }
              }
