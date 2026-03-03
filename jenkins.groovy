@@ -25,6 +25,8 @@ pipeline {
 	        stage('Run Jar') {
 	            steps {
 	                sh 'java -jar target/MavenProject-v4.1.jar'
+					sh 'javac Test_1.java'
+					sh 'java Test_1'
 	            }
 	        }
 	
