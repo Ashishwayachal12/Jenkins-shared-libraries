@@ -17,8 +17,8 @@ pipeline {
 	        }
 			stage('Run Simple Java') {
             steps   {
-                  sh 'javac src/main/java/mavenPackage/Test.java'
-                   sh 'java -cp src/main/java mavenPackage.Test'
+                  sh '''javac src/main/java/mavenPackage/Test.java 
+                        java -cp src/main/java mavenPackage.Test '''
                      }
              }
 	
