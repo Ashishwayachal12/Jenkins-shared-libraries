@@ -15,12 +15,6 @@ pipeline {
 	                echo "Code cloning successful"
 	            }
 	        }
-			stage('Run Simple Java') {
-            steps   {
-                  sh '''javac src/main/java/mavenPackage/Test.java 
-                        java -cp src/main/java mavenPackage.Test '''
-                     }
-             }
 	
 	        stage('Maven Build') {
 	            steps {
