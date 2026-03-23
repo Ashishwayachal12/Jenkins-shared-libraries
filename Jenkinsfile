@@ -3,35 +3,31 @@ pipeline {
 
     stages {
 
-        stage('Clone Project 1') {
+        stage('Clone Repos') {
             steps {
-                dir('project1') {
-                    git url: "https://github.com/Ashishwayachal12/Maven_Sample_Project1.git", branch: "master"
-                }
-            }
-        }
-
-        stage('Clone Project 2') {
-            steps {
-                dir('project2') {
-                    git url: "https://github.com/Ashishwayachal12/Maven_Project2.git", branch: "master"
-                }
+                sh '''
+                    rm -rf project1 project2
+                    git clone https://github.com/Ashishwayachal12/Maven_Sample_Project1.git project1
+                    git clone https://github.com/Ashishwayachal12/Maven_Project2.git project2
+                '''
             }
         }
 
         stage('Build Project 1') {
             steps {
-                dir('project1') {
-                    sh 'mvn clean install'
-                }
+                sh '''
+                    cd project1
+                    mvn clean install
+                '''
             }
         }
 
         stage('Build Project 2') {
             steps {
-                dir('project2') {
-                    sh 'mvn clean install'
-                }
+                sh '''
+                    cd project2
+                    mvn clean install
+                '''
             }
         }
 
