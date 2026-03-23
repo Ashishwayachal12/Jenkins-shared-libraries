@@ -3,42 +3,43 @@ pipeline {
 
     stages {
 
-        stage('Clone Repos') {
+        stage('Clone Repos project 1') {
             steps {
-                dir('project1') {
                     git url: "https://github.com/Ashishwayachal12/Maven_Sample_Project1.git", branch: "master"
-                }
-                dir('project2') {
+            }
+        }
+         stage('Clone Repos project 2') {
+            steps {
                     git url: "https://github.com/Ashishwayachal12/Maven_Project2.git", branch: "master"
-                }
             }
         }
 
-        stage('Build Projects') {
+        stage('Build Projects-1') {
             steps {
-                dir('project1') {
-                    sh 'mvn clean install'
-                }
-                dir('project2') {
-                    sh 'mvn clean install'
-                }
+               
+                    sh 'mvn clean install'               
+            }
+        }
+          stage('Build Projects-2') {
+            steps {
+                    sh 'mvn clean install'               
             }
         }
 
-        stage('Run Jars') {
+        stage('Run Jars-1') {
             steps {
-                dir('project1') {
                     sh '''
                         mv target/*.jar app1.jar
                         java -jar app1.jar &
                     '''
-                }
-                dir('project2') {
+            }
+        }
+         stage('Run Jars-2') {
+            steps {
                     sh '''
                         mv target/*.jar app2.jar
                         java -jar app2.jar &
                     '''
-                }
             }
         }
 
