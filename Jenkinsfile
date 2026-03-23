@@ -26,20 +26,15 @@ pipeline {
             }
         }
 
-        stage('Run Jars-1') {
+       stage('Run Jars') {
             steps {
-                    sh '''
-                        mv target/*.jar app1.jar
-                        java -jar app1.jar &
-                    '''
-            }
-        }
-         stage('Run Jars-2') {
-            steps {
-                    sh '''
-                        mv target/*.jar app2.jar
-                        java -jar app2.jar &
-                    '''
+                sh '''
+                    mv project1/target/*.jar app1.jar
+                    mv project2/target/*.jar app2.jar
+
+                    java -jar app1.jar &
+                    java -jar app2.jar &
+                '''
             }
         }
 
