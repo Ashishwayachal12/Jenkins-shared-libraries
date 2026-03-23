@@ -29,8 +29,8 @@ pipeline {
        stage('Run Jars') {
             steps {
                 sh '''
-                    mv project1/target/*.jar app1.jar
-                    mv project2/target/*.jar app2.jar
+                    mv Build Projects-1/target/*.jar app1.jar
+                    mv Build Projects-2/target/*.jar app2.jar
 
                     java -jar app1.jar &
                     java -jar app2.jar &
