@@ -11,7 +11,7 @@ pipeline {
 	
 	        stage('Git clone') {
 	            steps {
-	                git url: "https://github.com/Ashishwayachal12/Maven_Project2.git", branch: "master"
+	                git url: "https://github.com/Ashishwayachal12/Maven_Sample_Project1.git", branch: "master"
 					git url: "https://github.com/Ashishwayachal12/Maven_Project2.git", branch: "master"
 					echo "Code cloning successful"
 	            }
